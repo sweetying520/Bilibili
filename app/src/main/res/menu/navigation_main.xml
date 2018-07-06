@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_nomal">
+        <item
+            android:id="@+id/item_home"
+            android:checked="true"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/item_vip"
+            android:checkable="false"
+            android:icon="@drawable/ic_nav_vip"
+            android:title="@string/big_vip" />
+
+        <item
+            android:id="@+id/item_point"
+            android:checkable="false"
+            android:icon="@drawable/ic_nav_point"
+            android:title="@string/vip_point" />
+        <item
+            android:id="@+id/item_unicom"
+            android:checkable="false"
+            android:icon="@drawable/ic_nav_unicom"
+            android:title="@string/unicom" />
+        <item
+            android:id="@+id/item_down"
+            android:checkable="false"
+            android:icon="@drawable/ic_file_download_black_24dp"
+            android:title="@string/down" />
+    </group>
+
+    <group android:id="@+id/group_user">
+
+        <item
+            android:id="@+id/item_view_later"
+            android:checked="false"
+            android:icon="@drawable/ic_view_later_24dp"
+            android:title="@string/later" />
+
+        <item
+            android:id="@+id/item_star"
+            android:checkable="false"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="@string/star" />
+
+        <item
+            android:id="@+id/item_history"
+            android:checkable="false"
+            android:icon="@drawable/ic_history_black_24dp"
+            android:title="@string/history" />
+        <item
+            android:id="@+id/item_people"
+            android:checkable="false"
+            android:icon="@drawable/ic_people_black_24dp"
+            android:title="@string/people" />
+        <item
+            android:id="@+id/item_wallet"
+            android:checkable="false"
+            android:icon="@drawable/ic_account_balance_wallet_black_24dp"
+            android:title="@string/wallet" />
+    </group>
+    <group
+        android:id="@+id/gruop_setting"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/item_theme"
+            android:checkable="false"
+            android:icon="@drawable/ic_color_lens_black_24dp"
+            android:title="@string/theme" />
+
+
+        <item
+            android:id="@+id/item_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/setting_and_helper" />
+
+    </group>
+</menu>
