@@ -3,6 +3,8 @@ package com.dream.bilibili.model;
 
 import com.dream.bilibili.model.data.BannerData;
 import com.dream.bilibili.model.data.BaseResponse;
+import com.dream.bilibili.model.data.live.LivePartition;
+import com.dream.bilibili.model.data.live.LiveRecommend;
 import com.dream.bilibili.model.db.DbHelper;
 import com.dream.bilibili.model.http.HttpHelper;
 import com.dream.bilibili.model.prefs.PreferenceHelper;
@@ -31,5 +33,15 @@ public class DataManager implements HttpHelper, DbHelper, PreferenceHelper {
     @Override
     public Observable<BaseResponse<List<BannerData>>> getBanner() {
         return mHttpHelper.getBanner();
+    }
+
+    @Override
+    public Observable<BaseResponse<LiveRecommend>> getLiveRecommend() {
+        return mHttpHelper.getLiveRecommend();
+    }
+
+    @Override
+    public Observable<BaseResponse<LivePartition>> getLivePartition() {
+        return mHttpHelper.getLivePartition();
     }
 }

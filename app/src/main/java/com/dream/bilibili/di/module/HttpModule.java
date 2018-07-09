@@ -5,8 +5,10 @@ import com.dream.bilibili.common.MyConstants;
 import com.dream.bilibili.di.qualifier.MyAppUrl;
 import com.dream.bilibili.model.http.api.Api;
 import com.dream.bilibili.util.CommonUtils;
+import com.dream.bilibili.util.MoreBaseUrlInterceptor;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Singleton;
@@ -93,6 +95,12 @@ public class HttpModule {
             }
             return response;
         };
+
+        //设置多BaseUrl的处理情况
+        builder.addInterceptor(new MoreBaseUrlInterceptor());
+        //添加UA拦截器，B站请求API需要加上UA才能正常使用
+        builder.addInterceptor(new UserAgentInterceptor());
+
         //设置缓存
         builder.addNetworkInterceptor(cacheInterceptor);
         builder.addInterceptor(cacheInterceptor);
@@ -115,5 +123,21 @@ public class HttpModule {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+    }
+
+    /**
+     * 添加UA拦截器，B站请求API需要加上UA才能正常使用
+     */
+    private static class UserAgentInterceptor implements Interceptor {
+
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            Request originalRequest = chain.request();
+            Request requestWithUserAgent = originalRequest.newBuilder()
+                    .removeHeader("User-Agent")
+                    .addHeader("User-Agent", Api.COMMON_UA_STR)
+                    .build();
+            return chain.proceed(requestWithUserAgent);
+        }
     }
 }

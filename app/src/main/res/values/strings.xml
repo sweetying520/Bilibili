@@ -43,5 +43,13 @@
     <!--HomeFragment-->
     <string name="game_center">游戏中心</string>
     <string name="search">搜索</string>
+    <string name="live">直播</string>
+    <string name="recommend">推荐</string>
+    <string name="zf">追番</string>
+    <string name="partition">分区</string>
+    <string name="trend">动态</string>
+    <string name="discovery">发现</string>
+    <string name="failed_to_get_banner_data">Failed to get banner data</string>
+    <string name="failed_to_get_live_recommned_data">Failed to get live recommend data</string>
 
 </resources>

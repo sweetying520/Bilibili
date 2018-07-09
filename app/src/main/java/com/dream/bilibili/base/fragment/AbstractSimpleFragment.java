@@ -1,6 +1,7 @@
 package com.dream.bilibili.base.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -32,17 +33,18 @@ public abstract class AbstractSimpleFragment extends SupportFragment {
     private long clickTime;
     private CompositeDisposable mCompositeDisposable;
     public boolean isInnerFragment;
+    private View mRootView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutId(), container, false);
-        unBinder = ButterKnife.bind(this, view);
+        mRootView = inflater.inflate(getLayoutId(), container, false);
+        unBinder = ButterKnife.bind(this, mRootView);
         mCompositeDisposable = new CompositeDisposable();
         if(isUseScreenAdapter()){
-            ScreenAdapterTools.getInstance().loadView(view);
+            ScreenAdapterTools.getInstance().loadView(mRootView);
         }
-        return view;
+        return mRootView;
     }
 
     @Override
@@ -110,6 +112,84 @@ public abstract class AbstractSimpleFragment extends SupportFragment {
      */
     protected boolean isUseScreenAdapter(){
         return true;
+    }
+
+
+    /**
+     * 隐藏View
+     *
+     * @param views 视图
+     */
+    protected void gone(final View... views) {
+        if (views != null && views.length > 0) {
+            for (View view : views) {
+                if (view != null) {
+                    view.setVisibility(View.GONE);
+                }
+            }
+        }
+    }
+
+    /**
+     * 显示View
+     *
+     * @param views 视图
+     */
+    protected void visible(final View... views) {
+        if (views != null && views.length > 0) {
+            for (View view : views) {
+                if (view != null) {
+                    view.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+    }
+
+    /**
+     * 隐藏View
+     *
+     * @param id id
+     */
+    protected void gone(final @IdRes int... id) {
+        if (id != null && id.length > 0) {
+            for (int resId : id) {
+                View view = $(resId);
+                if (view != null) {
+                    gone(view);
+                }
+            }
+        }
+
+    }
+
+    /**
+     * 显示View
+     *
+     * @param id id
+     */
+    protected void visible(final @IdRes int... id) {
+        if (id != null && id.length > 0) {
+            for (int resId : id) {
+                View view = $(resId);
+                if (view != null) {
+                    visible(view);
+                }
+            }
+        }
+    }
+
+    /**
+     *
+     * @param id id
+     * @return View
+     */
+    private View $(@IdRes int id) {
+        View view;
+        if(mRootView != null){
+            view = mRootView.findViewById(id);
+            return view;
+        }
+        return null;
     }
 
 }

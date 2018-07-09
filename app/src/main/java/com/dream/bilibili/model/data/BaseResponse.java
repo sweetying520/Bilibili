@@ -9,14 +9,44 @@ public class BaseResponse<T> {
 
     public static final int SUCCESS = 0;
 
-    /**
-     * 0：成功，1：失败
-     */
+    private T data;
+    private T result;
+    private String message;
     private int code;
-
-    private String msg;
-
+    private T rank;
     private T model;
+
+    public T getModel() {
+        return model;
+    }
+
+    public void setModel(T model) {
+        this.model = model;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public T getResult() {
+        return result;
+    }
+
+    public void setResult(T result) {
+        this.result = result;
+    }
+
+    public String getMessage() {
+        return message == null ? "" : message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public int getCode() {
         return code;
@@ -26,19 +56,25 @@ public class BaseResponse<T> {
         this.code = code;
     }
 
-    public String getMsg() {
-        return msg;
+    public T getRank() {
+        return rank;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setRank(T rank) {
+        this.rank = rank;
     }
 
-    public T getModel() {
-        return model;
-    }
-
-    public void setModel(T model) {
-        this.model = model;
+    public T getTargetData(){
+        if(data != null){
+            return data;
+        }else if(result != null){
+            return result;
+        }else if(model != null){
+            return model;
+        }else if(rank != null){
+            return rank;
+        }else {
+            return null;
+        }
     }
 }

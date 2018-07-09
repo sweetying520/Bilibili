@@ -42,9 +42,8 @@ public class RxUtils {
         return httpResponseObservable ->
                 httpResponseObservable.flatMap((Function<BaseResponse<T>, Observable<T>>) baseResponse -> {
             if(baseResponse.getCode() == BaseResponse.SUCCESS
-                    && baseResponse.getModel() != null
                     && CommonUtils.isNetworkConnected()) {
-                return createData(baseResponse.getModel());
+                return createData(baseResponse.getTargetData());
             } else {
                 return Observable.error(new OtherException());
             }

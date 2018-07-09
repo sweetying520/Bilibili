@@ -14,6 +14,8 @@ public interface HomeContract {
     }
 
     interface Presenter extends AbstractPresenter<View>{
+        void getLiveRecommond();
 
+        void getBannerData();
     }
 }

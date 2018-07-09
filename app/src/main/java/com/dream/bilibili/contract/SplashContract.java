@@ -12,7 +12,7 @@ public interface SplashContract {
     interface View extends BaseView{
         void showCountDown(long countDownTime);
 
-        void toMainActivity();
+        void toLoginActivity();
     }
 
     interface Presenter extends AbstractPresenter<View> {

@@ -39,7 +39,7 @@ public class SplashPresenter extends BasePresenter<SplashContract.View> implemen
 
                     @Override
                     public void onComplete() {
-                        mView.toMainActivity();
+                        mView.toLoginActivity();
                     }
                 }));
     }

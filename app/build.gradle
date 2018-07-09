@@ -74,6 +74,8 @@ dependencies {
     //屏幕适配
     implementation rootProject.ext.dependencies["screenadaptation"]
 
+    implementation rootProject.ext.dependencies["FlycoTabLayout_Lib"]
+
     //canary
     debugImplementation rootProject.ext.dependencies["leakcanary-android"]
     releaseImplementation rootProject.ext.dependencies["leakcanary-android-no-op"]

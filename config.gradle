@@ -95,7 +95,10 @@ ext {
 
             //rxlifecycle
             "rxlifecycle"                   : 'com.trello.rxlifecycle2:rxlifecycle:2.0.1',
-            "rxlifecycle-components"        : 'com.trello.rxlifecycle2:rxlifecycle-components:2.0.1'
+            "rxlifecycle-components"        : 'com.trello.rxlifecycle2:rxlifecycle-components:2.0.1',
+
+            "FlycoTabLayout_Lib"            : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
 
 
 

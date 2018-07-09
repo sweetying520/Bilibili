@@ -66,7 +66,7 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
 
     @OnClick(R.id.ll_count_down)
     public void onClick() {
-       toMainActivity();
+        toLoginActivity();
     }
 
     @Override
@@ -75,7 +75,7 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
     }
 
     @Override
-    public void toMainActivity() {
+    public void toLoginActivity() {
         LoginActivity.start(mActivity);
         finish();
     }

@@ -73,6 +73,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     ivIconRight.setImageResource(R.drawable.ic_33);
                 }));
 
+
+
         //密码监听
         mPresenter.addRxBindingSubscribe(RxView.focusChanges(etPassword)
                 .subscribe(aBoolean -> {

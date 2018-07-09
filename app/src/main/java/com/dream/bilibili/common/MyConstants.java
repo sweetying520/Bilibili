@@ -21,4 +21,13 @@ public class MyConstants {
 
     public static final String PARAMS_ONE = "params_1";
     public static final String PARAMS_TWO = "params_2";
+
+    public static final String KEY_LIVE = "live";
+    public static final String KEY_APP = "app";
+    public static final String KEY_RANK = "rank";
+    public static final String KEY_API = "api";
+    public static final String KEY_BANGUMI = "bangumi";
+    public static final String KEY_IM9 = "im9";
+    public static final String KEY_COMMON = "common";
+    public static final String KEY_AII = "aii";
 }
